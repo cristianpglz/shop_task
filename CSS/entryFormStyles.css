@@ -1,9 +1,12 @@
 body{
-    background-color: rgb(28, 11, 31) ;
+    background: rgb(65,55,63);
+    background: linear-gradient(90deg, rgba(65,55,63,1) 0%, rgba(2,0,36,1) 47%, rgba(77,60,173,1) 100%);
     font-family: 'Poppins',sans-serif;
 }
 header,footer{
     text-align: center;
+    font-weight: 100;
+    padding: 30px;
 }
 main{
     font-size: 20px;
@@ -34,7 +37,7 @@ input{
     font-size:18px;
 
 }
-input[type="email"]{
+input{
     border: 1px solid #ced4da;
     font-weight: 200;
     font-size:18px;
@@ -42,12 +45,21 @@ input[type="email"]{
     width: 278px;
 }
 input[type="submit"]{
+    transition: .5s;
     background-color: #05bbe3;
-    color: #fff;
+    color: black;
     font-weight: 400;
     border-radius: 5px;
+    border-color: black;
     width: 100%;
 }
+input[type="submit"]:hover{
+    transition: .4s;
+    background-color: black;
+    color: white;
+}
+
+
 select{
     font-family: 'Poppins',sans-serif;
     width: 100%;
@@ -57,19 +69,30 @@ select{
     font-size:18px;
 }
 p{
+    color: white;
     font-weight: 100;
     font-size: 14px;
 }
-footer{
-    font-weight: 100;
-}
+
 /*Clases*/
+.eye-button{
+    position: absolute;
+    padding-top: 4px;
+}
+
+
+.container-password{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
 
 /*IDs*/
 
 #error{
     text-align: center;
-    color:#fd0c49;
+    color:red;
     font-weight: 300;
     font-size: 14px;
     margin-top: 10px;

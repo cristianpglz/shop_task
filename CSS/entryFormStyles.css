@@ -74,6 +74,7 @@ p{
     font-size: 14px;
 }
 
+
 /*Clases*/
 .eye-button{
     position: absolute;
@@ -87,6 +88,10 @@ p{
     align-items: center;
 }
 
+
+footer{
+    font-weight: 100;
+}
 
 /*IDs*/
 

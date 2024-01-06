@@ -2,36 +2,38 @@
     JS userData
 */
 
-//VARIABLES
-var name_input;
-var email_input;
-var password_input;
-var geoLocation;
-
-
-
-
 /**
  * Almacenar los datos en el sessionStorage
- * @param  {HTMLElement} name_input user name
+ * @param  {HTMLElement} username user name
  * @param  {HTMLElement} email user email
  * @param  {HTMLElement} password user password
  */
-function datosUsuario(name_input,email_input,password_input) {
-    sessionStorage.setItem('name',name_input.value);
-    sessionStorage.setItem('email',email_input.value);
-    sessionStorage.setItem('password',password_input.value);
-    sessionStorage.setItem('geolocalizacion_input',geolocation);
+function datosUsuario(username,email,password) {
+    sessionStorage.setItem('username',username);
+    sessionStorage.setItem('email',email);
+    sessionStorage.setItem('password',password);
+   
 }
+
+
 
 
 /**
  * Recoge los daots de la sesion del sessionStage
  */
 function getDatosUsuario(){
-    name_input = sessionStorage.getItem('name');
-    email_input = sessionStorage.getItem('email');
-    password_input = sessionStorage.getItem('password');
+    username = sessionStorage.getItem('username');
+    email = sessionStorage.getItem('email');
+    password = sessionStorage.getItem('password');
+}
+
+function comprobacionDatosUsuario(){
+    if(typeof username==undefined){
+        sessionStorage.setItem('error','No se ha rellenado correctamente el formulario');
+        return false;
+    }
+    console.log("estoy aqui");
+    return true;
 }
 
 /**
@@ -54,12 +56,12 @@ function datoGeolocalizacion(){
 //localStorage
 /**
  * Description
- * @param {any} name_input
- * @param {any} email_input
- * @param {any} password_input
+ * @param {any} username
+ * @param {any} email
+ * @param {any} password
  * @returns {any}
  */
-function historicoUsuarios(name_input, email_input, password_input){
+function historicoUsuarios(username, email, password){
     let historyStorage=localStorage.getItem('historico');   
     let history;
     if(historyStorage==null){
@@ -68,9 +70,9 @@ function historicoUsuarios(name_input, email_input, password_input){
         history=JSON.parse(historyStorage);
     }
     let registroUsuario={
-        usuario:name_input.value,
-        email:email_input.value,
-        password:password_input.value,
+        usuario:username,
+        email:email,
+        password:password,
         fecha:Date.now()
     }
     
@@ -78,7 +80,6 @@ function historicoUsuarios(name_input, email_input, password_input){
     localStorage.setItem('historico',JSON.stringify(history));
 }
     
-
 
 
 

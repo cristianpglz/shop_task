@@ -1,85 +1,69 @@
-/* 
-    JS userData
-*/
+// userData.js
 
-/**
- * Almacenar los datos en el sessionStorage
- * @param  {HTMLElement} username user name
- * @param  {HTMLElement} email user email
- * @param  {HTMLElement} password user password
- */
-function datosUsuario(username,email,password) {
-    sessionStorage.setItem('username',username);
-    sessionStorage.setItem('email',email);
-    sessionStorage.setItem('password',password);
-   
+var geolocationSearch;
+
+function userData() {
+    var userName = document.getElementById('userName').value;
+    var userEmail = document.getElementById('email').value;
+    var userPassword = document.getElementById('password').value;
+
+    sessionStorage.setItem('userName', userName);
+    sessionStorage.setItem('email', userEmail);
+    sessionStorage.setItem('password', userPassword);
+    sessionStorage.setItem('geolocationSearch', geolocationSearch);
 }
 
+function getUserData() {
+    var userName = sessionStorage.getItem('userName');
+    var userEmail = sessionStorage.getItem('email');
+    var userPassword = sessionStorage.getItem('password');
+    geolocationSearch = sessionStorage.getItem('geolocationSearch');
 
-
-
-/**
- * Recoge los daots de la sesion del sessionStage
- */
-function getDatosUsuario(){
-    username = sessionStorage.getItem('username');
-    email = sessionStorage.getItem('email');
-    password = sessionStorage.getItem('password');
+    return { userName, userEmail, userPassword, geolocationSearch };
 }
 
-function comprobacionDatosUsuario(){
-    if(typeof username==undefined){
-        sessionStorage.setItem('error','No se ha rellenado correctamente el formulario');
+function checkUserData() {
+    var { userName } = getUserData();
+
+    if (userName == null) {
+        sessionStorage.setItem('error', 'No se ha rellenado correctamente el formulario');
         return false;
     }
-    console.log("estoy aqui");
+    console.log("Estoy aquí");
     return true;
 }
 
-/**
- * Calcula la geolocalizacion del usuario y la almacena en geolocalizacionTxt
- */
-function datoGeolocalizacion(){
-    if(!navigator.geolocation){
-        geolocation="El navegador no es compatible con API Geolocation";
-    }else{
+function locationData() {
+    if (!navigator.geolocation) {
+        geolocationSearch = "El navegador no es compatible con la API de Geolocalización";
+    } else {
         navigator.geolocation.getCurrentPosition(
-            //Exito
-            (position)=>{geolocation='Latitud:'+position.coords.latitude+',longitud:'+position.coords.longitude},
-            //Error
-            ()=>{geolocation="La geolocalizacion no se ha podido realizar";}
-        )
+            // Success
+            (position) => { geolocationSearch = 'Latitud:' + position.coords.latitude + ', Longitud:' + position.coords.longitude },
+            // Error
+            () => { geolocationSearch = "La geolocalización no se ha podido realizar"; }
+        );
     }
 }
 
 
-//localStorage
-/**
- * Description
- * @param {any} username
- * @param {any} email
- * @param {any} password
- * @returns {any}
- */
-function historicoUsuarios(username, email, password){
-    let historyStorage=localStorage.getItem('historico');   
-    let history;
-    if(historyStorage==null){
-        history=[];
-    }else{
-        history=JSON.parse(historyStorage);
+function userHistory() {
+    var { userName, userEmail, userPassword } = getUserData();
+
+    var historyStorage = localStorage.getItem('history');
+    var history;
+
+    if (historyStorage == null) {
+        history = [];
+    } else {
+        history = JSON.parse(historyStorage);
     }
-    let registroUsuario={
-        usuario:username,
-        email:email,
-        password:password,
-        fecha:Date.now()
-    }
-    
-    history.push(registroUsuario);
-    localStorage.setItem('historico',JSON.stringify(history));
+
+    var userRecord = {
+        user: userName,
+        date: Date.now()
+    };
+
+    history.push(userRecord);
+    localStorage.setItem('history', JSON.stringify(history));
 }
-    
-
-
-

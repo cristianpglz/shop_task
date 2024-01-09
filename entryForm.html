@@ -16,23 +16,26 @@
 </head>
 <body>
     <header>
-        <img src="/IMGs/main_icon.png" alt="image main logo" width="300">
+        <img src="./IMGs/main_icon.png" alt="image main logo" width="300">
     </header>
     <main>
         <form action="shop.html" id="formEntry">
             <div class="itemform">
-                <label for="username">Introduce tu Nombre</label>
-                <input type="text" name="name" id="username" value="hola" placeholder="Name" autocomplete="username" required minlength="2">
+                <label for="userName">Introduce tu Nombre</label>
+                <input type="text" name="userName" id="userName"  placeholder="Name" autocomplete="userName" required minlength="2">
             </div>
             <div class="itemform">
                 <label for="email">Correo Electrónico</label>
-                <input type="email" id="email" placeholder="Your@e-mail" value="" autocomplete="email" required>
+                <input type="email" id="email" placeholder="Your@e-mail"  autocomplete="email" required>
             </div>
             <div class="itemform">
                 <label for="password">Contraseña</label>
                 <div class="container-password">
-                    <input type="password" id="password"  placeholder="password" value="" autocomplete="current-password" required minlength="5">
+                    <input type="password" id="password"  placeholder="password"  autocomplete="current-password" required minlength="5">
                     <i class="eye-button" id="show-hide-password" ><img class="eye-buton" src="/IMGs/dont check.png" width="25px" alt=""></i>
+                </div>
+                <div class="container-log-in">
+                    <a id="log-in" href="">¿Ya tienes una cuenta?</a>
                 </div>
             </div>
             <div class="itemform">
@@ -46,7 +49,8 @@
     <footer>
         <p>Curso HTML, CSS y JS</p>
     </footer>
-    <script src="/JS/userData.js"></script>
-    <script src="/JS/entryForm.js"></script>
+    <script src="./JS/userData.js"></script>
+    <script src="./JS/entryForm.js"></script>
+
 </body>
 </html>

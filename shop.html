@@ -6,12 +6,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>online store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap" rel="stylesheet">
+    <link rel="icon" href="./IMGs/main_icon.png">
+    <link rel="stylesheet" href="./CSS/reset.css">
+    <link rel="stylesheet" href="./CSS/shop_styles.css">
 </head>
 <body>
-    
 
-    <script src="/JS/userData.js"></script>
+    <main>
+        <section id="sort_content">
+            <div class="products">
+                <div class="card_product" draggable="true">
+                    <img draggable="false" src="./IMGs/computer_tower.jpg" alt="">
+                    <div class="product_information">
+                        <p>Zone Evil Silver 22GB450R546 Ryzen 5 </p>
+                        <p>590,32 €</p>
+                    </div>
+                </div>
+            </div>
+            <div class="products">
+                <div class="card_product" draggable="true">
+                    <img draggable="false" src="./IMGs/amazon_assistant.jpg" alt="">
+                    <div class="product_information">
+                        <p>AMAZON ECHO (4TH GEN.) - BLANCO GLACIAR</p>
+                        <p>74,90 €</p>
+                    </div>
+                </div>
+            </div>
+            <div class="products">
+                <div class="card_product" draggable="true">
+                    <img draggable="false" src="./IMGs/corsair-liqid.jpg" alt="">
+                    <div class="product_information">
+                        <p>REFRIGERACION LIQUIDA CORSAIR ICUE H100I ELITE</p>
+                        <p>169,90 €</p>
+                    </div>
+                </div>
+            </div>
+            <div class="products">
+                <div class="card_product" draggable="true">
+                    <img draggable="false" src="./IMGs/laptop_lenovo.jpg" alt="">
+                    <div class="product_information">
+                        <p>PORTATIL LENOVO V15 G3 ABA AMD RYZEN 7</p>
+                        <p>507,99 €</p>
+                    </div>
+                </div>
+            </div>
+            <div class="products">
+                <div class="card_product" draggable="true">
+                    <img draggable="false" src="./IMGs/speakers_logitech.jpg" alt="">
+                    <div class="product_information">
+                        <p>ALTAVOCES 5.1 LOGITECH Z906 THX DIGITAL 500W NEGRO</p>
+                        <p>350,62 €</p>
+                    </div>
+                </div>
+            </div>
+            <div class="products">
+                <div class="card_product" draggable="true">
+                    <img draggable="false" src="./IMGs/camera_tapo.jpg" alt="">
+                    <div class="product_information">
+                        <p>CAMARA TP-LINK PAN/TILT SECURITY WIFI QHD 2K</p>
+                        <p>33,90 €</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            
+        </section>
+        <div class="cart">
+            <div class="image_cart">
+                <img draggable="false" class="shopping_cart" src="./IMGs/shopping_cart_img.png" alt="">
+            </div>
+                <div id="products_in_the_cart" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)">
+                    <div id="container">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./JS/userData.js"></script>
+    <script src="./JS/shop.js"></script>
 </body>
 </html>
-<p>hola</p>

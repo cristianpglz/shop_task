@@ -1,5 +1,4 @@
 body{
-    background: rgb(65,55,63);
     background: linear-gradient(90deg, rgba(65,55,63,1) 0%, rgba(2,0,36,1) 47%, rgba(77,60,173,1) 100%);
     font-family: 'Poppins',sans-serif;
 }
@@ -18,30 +17,22 @@ main{
 form{
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
+    row-gap: 15px;
     font-size: 18px;
 }
 label{
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 input{
     margin-top: 10px;
     display: inline;
     font-family: 'Poppins',sans-serif;
-    width: 280px;
     border: 1px solid #ced4da;
     padding: 10px;
-    border-radius: 0px 5px 5px 0px;
+    border-radius: 5px 5px 5px 5px;
     font-weight: 200;
-    font-size:18px;
-
-}
-input{
-    border: 1px solid #ced4da;
-    font-weight: 200;
-    font-size:18px;
-    border-radius: 5px;
+    font-size:18px;    
     width: 278px;
 }
 input[type="submit"]{
@@ -57,6 +48,7 @@ input[type="submit"]:hover{
     transition: .4s;
     background-color: black;
     color: white;
+    cursor: pointer;
 }
 
 
@@ -75,7 +67,7 @@ p{
 }
 
 
-/*Clases*/
+/*Class*/
 .eye-button{
     position: absolute;
     padding-top: 4px;
@@ -87,14 +79,32 @@ p{
     justify-content: end;
     align-items: center;
 }
-
+.container-log-in{
+    margin-top: 5px;
+}
 
 footer{
     font-weight: 100;
 }
 
 /*IDs*/
-
+#log-in{
+    font-size: small;
+    font-weight: 10;
+    text-decoration:none;
+}
+#log-in:active{
+    color: #05bbe3;
+}
+#log-in:visited{
+    color: white;
+}
+#log-in:hover{
+    color:#05bbe3;
+}
+#show-hide-password{
+    cursor: pointer;
+}
 #error{
     text-align: center;
     color:red;
